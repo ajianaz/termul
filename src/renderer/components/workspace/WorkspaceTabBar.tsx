@@ -280,6 +280,12 @@ function EditorTabWrapper({
 			onDragOver={onDragOver}
 			onDragLeave={onDragLeave}
 			onDrop={onDrop}
+			onAuxClick={(e) => {
+				if (e.button !== 1) return;
+				e.preventDefault();
+				e.stopPropagation();
+				onClose();
+			}}
 			className={cn(
 				"relative h-full transition-all duration-150 ease-out",
 				isDragging && "opacity-50 scale-[0.98]",
